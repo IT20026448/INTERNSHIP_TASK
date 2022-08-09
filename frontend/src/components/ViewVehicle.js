@@ -6,7 +6,8 @@ import axios from 'axios';
       super(props);
 
       this.state={
-        PlateNumber:[]
+        PlateNumber:[],
+        VehicleType:[]
       }
     }
 
@@ -31,6 +32,7 @@ import axios from 'axios';
                   <thead>
                     <tr>
                       <th>Plate Number</th>
+                      <th>Vehicle Type</th>
                     </tr>
                   </thead>
                   <tbody>

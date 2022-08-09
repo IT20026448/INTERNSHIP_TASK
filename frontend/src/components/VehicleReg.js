@@ -7,7 +7,8 @@ import ViewVehicle from './ViewVehicle';
       super(props);
 
       this.state={
-        PlateNumber:""
+        PlateNumber:"",
+        VehicleType:""
       }
     }
 
@@ -20,15 +21,20 @@ import ViewVehicle from './ViewVehicle';
         ...this.state,
         [name]:value
       })  
+
+      if(val.includes("ශ්‍රී")){
+        this.setState({VehicleType : "Vintage"});
+      }
     }
     
     onSubmit=(e)=>{
       e.preventDefault();
 
-      const {PlateNumber} = this.state;
+      const {PlateNumber, VehicleType} = this.state;
 
       const data={
-          PlateNumber:PlateNumber     
+          PlateNumber:PlateNumber,
+          VehicleType:VehicleType     
       }
 
       console.log(data)
@@ -37,7 +43,8 @@ import ViewVehicle from './ViewVehicle';
         if(res.data.success){
           this.setState(
             {
-              PlateNumber:""
+              PlateNumber:"",
+              VehicleType:""
             }
           )
           alert("Saving details");
