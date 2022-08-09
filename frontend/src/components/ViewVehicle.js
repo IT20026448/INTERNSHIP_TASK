@@ -29,6 +29,14 @@ import axios from 'axios';
       });
     }
 
+    onDelete = (id) => {
+      axios.delete(`http://localhost:8000/vehicles/delete/${id}`)
+      .then((res) => {
+        alert("Deleted successfully");
+        this.retrieveVehicleDetails();
+      });
+    }
+
     render() {
         return (
             <div>
@@ -44,6 +52,10 @@ import axios from 'axios';
                       <tr key={index}>
                         <td>{vehicles.PlateNumber}</td>
                         <td>{vehicles.VehicleType}</td>
+                        <div>
+                          <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} href={`/UpdateVehicle/${vehicles.PlateNumber}`}>Edit vehicle</button>
+                          <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} onClick={() => this.onDelete(vehicles.PlateNumber)}>Delete vehicle</button>
+                        </div>
                       </tr>
                        ))}
                   </tbody>
