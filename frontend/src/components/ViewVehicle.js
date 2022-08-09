@@ -52,10 +52,8 @@ import axios from 'axios';
                       <tr key={index}>
                         <td>{vehicles.PlateNumber}</td>
                         <td>{vehicles.VehicleType}</td>
-                        <div>
-                          <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} href={`/UpdateVehicle/${vehicles.PlateNumber}`}>Edit vehicle</button>
-                          <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} onClick={() => this.onDelete(vehicles.PlateNumber)}>Delete vehicle</button>
-                        </div>
+                        <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} href={`/UpdateVehicle/${vehicles._id}`}>Edit vehicle</button>
+                        <button className="btn btn-warning" style = {{textDecoration:'none',color:'white', backgroundColor:'blue'}} href="/" onClick={() => this.onDelete(vehicles._id)}>Delete vehicle</button>
                       </tr>
                        ))}
                   </tbody>
