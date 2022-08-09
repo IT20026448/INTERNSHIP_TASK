@@ -6,8 +6,12 @@ import axios from 'axios';
       super(props);
 
       this.state={
-        PlateNumber:[],
-        VehicleType:[]
+        PlateNumber:"",
+        VehicleType:""
+      }
+
+      this.state={
+        vehicles:[]
       }
     }
 
@@ -16,10 +20,10 @@ import axios from 'axios';
     }
 
     retrieveVehicleDetails(){
-      axios.get('http://localhost:3000/vehicledetails').then(res=>{
+      axios.get('http://localhost:8000/vehicledetails').then(res=>{
         if(res.data.success){
           this.setState({
-            PlateNumber:res.data.existingVehicles
+            vehicles:res.data.existingVehicles
           });
         }
       });
@@ -36,9 +40,10 @@ import axios from 'axios';
                     </tr>
                   </thead>
                   <tbody>
-                      {this.state.PlateNumber.map((PlateNumber, index) => (
+                      {this.state.vehicles.map((vehicles, index) => (
                       <tr key={index}>
-                        <td>{PlateNumber.PlateNumber}</td>
+                        <td>{vehicles.PlateNumber}</td>
+                        <td>{vehicles.VehicleType}</td>
                       </tr>
                        ))}
                   </tbody>

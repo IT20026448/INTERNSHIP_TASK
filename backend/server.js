@@ -16,7 +16,7 @@ app.use(cors());
 //middleware of the route
 app.use(VehicleRoutes);
 
-const port = 3000;
+const port = 8000;
 
 const DB_URL = 'mongodb+srv://admin:admin@cluster0.vxadeim.mongodb.net/?retryWrites=true&w=majority';
 

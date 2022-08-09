@@ -14,16 +14,32 @@ import ViewVehicle from './ViewVehicle';
 
     handleChange = (e) => {
       const {name,value} = e.target;
-      let nam = e.target.name;
-      let val = e.target.value;
+      const nam = e.target.name;
+      const val = e.target.value;
     
+      function containLetter(str) {
+        return /[A-Z]/.test(str);
+      }
+      
       this.setState({
         ...this.state,
         [name]:value
       })  
 
       if(val.includes("ශ්‍රී")){
-        this.setState({VehicleType : "Vintage"});
+        this.setState({
+          VehicleType : "Vintage"
+        });
+      }
+      else if(containLetter(val)){
+        this.setState({
+          VehicleType : "Modern"
+        })
+      }
+      else{
+        this.setState({
+          VehicleType: "Old"
+        })
       }
     }
     
@@ -39,7 +55,7 @@ import ViewVehicle from './ViewVehicle';
 
       console.log(data)
 
-      axios.post('http://localhost:3000/vehicles/save',data).then((res) =>{
+      axios.post('http://localhost:8000/vehicles/save',data).then((res) =>{
         if(res.data.success){
           this.setState(
             {
