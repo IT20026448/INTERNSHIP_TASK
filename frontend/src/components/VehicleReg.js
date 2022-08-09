@@ -28,7 +28,7 @@ import ViewVehicle from './ViewVehicle';
       const {PlateNumber} = this.state;
 
       const data={
-          PlateNumber:PlateNumber          
+          PlateNumber:PlateNumber     
       }
 
       console.log(data)

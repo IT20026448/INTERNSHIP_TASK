@@ -13,23 +13,6 @@ import axios from 'axios';
     componentDidMount(){
         this.retrieveVehicleDetails();
     }
-  
-    retrieveSpecificVehicleDetails(PlateNumber, searchKey){
-        const result = PlateNumber.filter((PlateNumber) => 
-        PlateNumber.PlateNumber.toLowerCase().includes(searchKey)
-        )
-        this.setState({PlateNumber:result})
-    }
-
-    handleSearchArea = (e) => {
-        const searchKey = e.currentTarget.value;
-
-        axios.get('http://localhost:3000/vehicledetails').then(res => {
-            if(res.data.success){
-                this.retrieveSpecificVehicleDetails(res.data.existingVehicles, searchKey)
-            }
-        })
-    }
 
     retrieveVehicleDetails(){
       axios.get('http://localhost:3000/vehicledetails').then(res=>{
